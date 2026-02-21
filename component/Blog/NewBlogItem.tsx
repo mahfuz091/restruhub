@@ -95,7 +95,7 @@ const NewBlogItem: React.FC<NewBlogItemProps> = ({ filterData }) => {
                                 <div className="flex items-center gap-1.5">
                                     <div className="relative w-5 h-5 rounded-full overflow-hidden border border-gray-100">
                                         <Image
-                                            src={blog.author?.profileImage || "/images/user-circle.png"}
+                                            src={blog.author?.profileImage || "/avatar.png"}
                                             alt={author}
                                             fill
                                             sizes="20px"

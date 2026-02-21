@@ -40,7 +40,7 @@ const RecentBlog: React.FC<RecentBlogProps> = ({ recentBlogs }) => {
                         <div className="flex items-center gap-3 mb-2">
                             <div className="relative w-6 h-6 rounded-full overflow-hidden border border-gray-100">
                                 <Image
-                                    src={blog.author?.profileImage || "/images/user-circle.png"}
+                                    src={blog.author?.profileImage || "/avatar.png"}
                                     alt={blog.author?.name || "Author"}
                                     fill
                                     sizes="24px"
