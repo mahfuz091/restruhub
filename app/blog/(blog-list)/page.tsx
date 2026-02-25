@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import BlogPage from "@/component/Blog/BlogPage";
 import { postList } from "@/app/actions/blog/blog.actions";
@@ -19,6 +20,7 @@ export const revalidate = 3600; // revalidate every hour
 
 const Page = async () => {
     const blogsResponse = await postList();
+    console.log("Fetched blogs response:", blogsResponse);
     const blogCategoriesResponse: any = await blogCategoryList();
 
     if (!blogCategoriesResponse.success) {

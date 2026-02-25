@@ -93,6 +93,9 @@ export default async function Page({ params }: PageProps) {
         ? blogCategoriesResponse.blogCategory
         : [];
 
+        console.log("post by slug", result?.post);
+        
+
 
     return (
         <BlogDetailsPage

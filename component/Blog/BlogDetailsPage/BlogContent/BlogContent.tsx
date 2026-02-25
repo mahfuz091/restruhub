@@ -7,6 +7,7 @@ import Image from "next/image";
 import { createComment } from "@/app/actions/blog/blog.actions";
 import Link from "next/link";
 import TableOfContents from "../TableOfContents/TableOfContents";
+import { safeAvatarSrc, safeImageSrc } from "@/lib/safeImage";
 
 interface BlogContentProps {
     post: {
@@ -115,8 +116,8 @@ const BlogContent = ({ post, blocks, postSlug }: BlogContentProps) => {
                 return block.data?.file?.url ? (
                     <div key={index} className="md:my-10 my-5 md:rounded-2xl rounded-xl overflow-hidden shadow-lg">
                         <img
-                            src={block.data.file.url}
-                            alt={block.data.caption || "Blog Image"}
+                            src={block?.data?.file?.url}
+                            alt={block?.data?.caption || "Blog Image"}
                             className="w-full object-cover"
                         />
                         {block.data.caption && (
@@ -206,7 +207,7 @@ const BlogContent = ({ post, blocks, postSlug }: BlogContentProps) => {
                     <div className="flex items-center gap-4 ">
                         <div className="hidden relative w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm">
                         <Image
-                            src={post?.author?.profileImage || "/avatar.png"}
+                            src={safeAvatarSrc(post.author?.profileImage)}
                             fill
                             alt={post.author?.name || "Author"}
                             className="object-cover"
@@ -236,7 +237,7 @@ const BlogContent = ({ post, blocks, postSlug }: BlogContentProps) => {
 
             <div className="relative aspect-video rounded-3xl overflow-hidden md:mb-16 mb-8 shadow-2xl">
                 <Image
-                    src={post.bannerImage}
+                    src={safeImageSrc(post.bannerImage)}
                     alt={post.title}
                     fill
                     className="object-cover"
