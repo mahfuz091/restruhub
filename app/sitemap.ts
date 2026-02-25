@@ -10,7 +10,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const blogUrls = Array.isArray(post)
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       ? post.map((blog: any) => ({
-          url: `${process.env.NEXT_PUBLIC_BASE_URL}/blog/${blog.postSlug}`,
+          url: `${baseUrl}/blog/${blog.postSlug}`,
           lastModified: new Date(blog.updatedAt || blog.createdAt),
         }))
       : [];
