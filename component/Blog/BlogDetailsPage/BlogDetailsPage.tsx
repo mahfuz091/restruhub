@@ -16,6 +16,7 @@ interface BlogDetailsPageProps {
         bannerImage: string;
         content: any;
         createdAt: Date;
+        updatedAt: Date;
         author: { id: string; name: string | null; email: string; profileImage: string | null } | null;
         BlogCategory: { id: string; name: string } | null;
         Comment?: {
