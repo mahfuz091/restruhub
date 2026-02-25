@@ -16,6 +16,7 @@ interface BlogContentProps {
         bannerImage: string;
         content: { blocks: any[] };
         createdAt: Date;
+        updatedAt: Date;
         author: {
             id: string;
             name: string | null;
@@ -81,7 +82,7 @@ const BlogContent = ({ post, blocks, postSlug }: BlogContentProps) => {
                 return (
                     <p
                         key={index}
-                        className="lg:text-lg text-base text-gray-700 leading-relaxed md:mb-6 mb-4"
+                        className="text-lg lg:text-[20px]  text-gray-700 leading-[1.7] md:mb-6 mb-4"
                         dangerouslySetInnerHTML={{ __html: text }}
                     />
                 );
@@ -180,7 +181,7 @@ const BlogContent = ({ post, blocks, postSlug }: BlogContentProps) => {
     return (
         <article className="max-w-4xl mx-auto">
 
-            <header className="md:mb-12 mb-8">
+            <header className="mb-4">
                 <div className="flex items-center gap-3 md:mb-6 mb-4 hidden">
                     <span className="px-4 py-1.5 bg-secondary/10 text-secondary text-xs font-bold rounded-full uppercase tracking-wider">
                         {post.BlogCategory?.name || "Uncategorized"}
@@ -196,13 +197,14 @@ const BlogContent = ({ post, blocks, postSlug }: BlogContentProps) => {
                     </time>
                 </div>
 
-                <h1 className="text-xl md:text-4xl lg:text-5xl font-bold text-primary md:mb-8 mb-4 leading-tight">
+                <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-primary mb-4  leading-tight pb-4 border-b border-gray-100">
                     {post.title}
                 </h1>
+                <p className="text-sm pb-2 text-gray-500">Last Update: {getDaysAgo(post.updatedAt)}</p>
 
-                <div className="flex items-center justify-between gap-4 p-4 bg-gray-50 rounded-2xl border border-gray-100">
-                    <div className="flex items-center gap-4 p-4">
-                        <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm">
+                <div className="hidden flex items-center justify-between gap-4 p-2 px-4 bg-gray-50 rounded-2xl border border-gray-100">
+                    <div className="flex items-center gap-4 ">
+                        <div className="hidden relative w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm">
                         <Image
                             src={post?.author?.profileImage || "/avatar.png"}
                             fill
@@ -210,8 +212,8 @@ const BlogContent = ({ post, blocks, postSlug }: BlogContentProps) => {
                             className="object-cover"
                         />
                     </div>
-                    <div>
-                        <p className="text-xs text-gray-500 font-medium uppercase tracking-wider">Written By</p>
+                    <div className="flex items-center gap-2">
+                        <p className=" text-xs text-gray-500 font-medium uppercase tracking-wider">Written By:</p>
                         <p className="font-bold text-primary">{post.author?.name || "Restuhub Team"}</p>
                     </div>  
                     </div>
@@ -242,10 +244,12 @@ const BlogContent = ({ post, blocks, postSlug }: BlogContentProps) => {
                 />
             </div>
 
-            <TableOfContents
+           <div className="lg:hidden">
+             <TableOfContents
                                     blocks={blocks}
                                     postSlug={postSlug}
                                 />
+           </div>
 
 
             <div className="prose prose-lg max-w-none">

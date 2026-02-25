@@ -30,7 +30,7 @@ const TableOfContents = ({ blocks, postSlug }: TOCProps) => {
         <div className="space-y-6">
             <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden transition-all duration-300">
                 <button
-                    className="w-full flex justify-between items-center p-5 text-primary font-bold bg-gray-50/50 hover:bg-gray-50 transition-colors"
+                    className="w-full flex justify-between items-center p-3 lg:p-5 text-primary font-bold bg-gray-50/50 hover:bg-gray-50 transition-colors"
                     onClick={() => setIsOpen(!isOpen)}
                 >
                     <span className="flex items-center gap-2">
@@ -43,7 +43,7 @@ const TableOfContents = ({ blocks, postSlug }: TOCProps) => {
 
                 <ul
                     ref={contentRef}
-                    className="px-5 py-2 space-y-1"
+                    className={`px-5  space-y-1 ${isOpen ? "py-2" : "py-0"}`}
                     style={{
                         height: height,
                         overflow: "hidden",
