@@ -44,6 +44,7 @@ export const postList = async (): Promise<
 > => {
     try {
         const posts = await prisma.post.findMany({
+            where: { status: "APPROVED" },
             orderBy: { createdAt: "desc" },
             select: {
                 id: true,
