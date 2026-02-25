@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import BlogContent from "./BlogContent/BlogContent";
@@ -51,8 +52,8 @@ const BlogDetailsPage = ({
                 <div className="container mx-auto px-4 py-16">
                     <div className="flex flex-col lg:flex-row md:gap-16 gap-6 relative">
 
-                        <aside className="w-full lg:w-1/4">
-                            <div className="lg:sticky lg:top-32 space-y-8">
+                        <aside className="w-full lg:w-1/4 hidden lg:block">
+                            <div className=" lg:sticky lg:top-32 space-y-8">
                                 <TableOfContents
                                     blocks={post.content?.blocks || []}
                                     postSlug={post.postSlug}
@@ -76,12 +77,12 @@ const BlogDetailsPage = ({
 
 
                         <main className="w-full lg:w-3/4">
-                            <BlogContent post={post} />
+                            <BlogContent post={post} blocks={post.content?.blocks || []} postSlug={post.postSlug} />
                         </main>
                     </div>
 
 
-                    <div className="border-t border-gray-100 md:mt-32 mt-10 md:pt-20 pt-10">
+                    <div className="border-t border-gray-100  lg:mt-32  pt-10  lg:pt-20">
                         <RelatedBlog
                             currentCategory={post.BlogCategory?.name}
                             currentId={post.postSlug}

@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Calendar, MessageCircle } from "lucide-react";
+import { safeAvatarSrc, safeImageSrc } from "@/lib/safeImage";
 
 interface Author {
     name: string | null;
@@ -81,9 +82,11 @@ const NewBlogItem: React.FC<NewBlogItemProps> = ({ filterData }) => {
 
                 const author = blog.author?.name || "Unknown Author";
                 const title = blog.title;
-                const description = blog.metaDescription || firstParagraph;
-                const category = blog.BlogCategory?.name || "Uncategorized";
-                const image = blog.bannerImage;
+                const description = blog?.metaDescription || firstParagraph;
+                const category = blog?.BlogCategory?.name || "Uncategorized";
+                const image = blog?.bannerImage;
+                 const imageSrc = safeImageSrc(blog?.bannerImage);
+        const avatarSrc = safeAvatarSrc(blog?.author?.profileImage);
 
                 return (
                     <div
@@ -95,7 +98,7 @@ const NewBlogItem: React.FC<NewBlogItemProps> = ({ filterData }) => {
                                 <div className="flex items-center gap-1.5">
                                     <div className="relative w-5 h-5 rounded-full overflow-hidden border border-gray-100">
                                         <Image
-                                            src={blog.author?.profileImage || "/avatar.png"}
+                                            src={avatarSrc}
                                             alt={author}
                                             fill
                                             sizes="20px"
@@ -136,7 +139,7 @@ const NewBlogItem: React.FC<NewBlogItemProps> = ({ filterData }) => {
                         <Link href={`/blog/${blog.postSlug}`} className="w-full md:w-[35%] shrink-0">
                             <div className="bg-muted aspect-video md:h-[180px] w-full overflow-hidden rounded-xl relative group">
                                 <Image
-                                    src={image}
+                                    src={imageSrc}
                                     alt={title}
                                     fill
                                     priority={index < 2}

@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { safeImageSrc } from "@/lib/safeImage";
 
 interface ItemProps {
     item: {
@@ -21,7 +22,7 @@ const Item: React.FC<ItemProps> = ({ item }) => {
         <div className="group bg-white rounded-3xl overflow-hidden border border-gray-100 hover:border-secondary transition-all duration-500 hover:shadow-2xl hover:shadow-secondary/5 h-full flex flex-col p-6 overflow-hidden">
             <Link href={`/blog/${item.postSlug}`} className="block overflow-hidden relative aspect-[16/10]">
                 <Image
-                    src={item.image}
+                    src={safeImageSrc(item.image)}
                     alt={item.bannerAltText || item.title}
                     fill
                     className="object-cover rounded-xl "

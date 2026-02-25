@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { blogCategoryList } from "@/app/actions/blog/blogCategory";
 import { getPostBySlug, postList } from "@/app/actions/blog/blog.actions";
 import BlogDetailsPage from "@/component/Blog/BlogDetailsPage/BlogDetailsPage";
 import type { Metadata } from "next";
+import Link from "next/link";
 
 interface PageProps {
     params: Promise<{ id: string }>;
@@ -81,7 +83,7 @@ export default async function Page({ params }: PageProps) {
                 <div className="container mx-auto">
                     <h2 className="text-3xl font-bold text-primary mb-4">Blog not found</h2>
                     <p className="text-gray-500 mb-8">The post you are looking for doesn&apos;t exist or has been moved.</p>
-                    <a href="/blog" className="inline-block px-8 py-4 bg-secondary text-white font-bold rounded-xl">Back to Blog</a>
+                    <Link href="/blog" className="inline-block px-8 py-4 bg-secondary text-white font-bold rounded-xl">Back to Blog</Link>
                 </div>
             </div>
         );

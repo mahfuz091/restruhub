@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { useState, useRef, useEffect } from "react";
 import { ChevronDown, ChevronUp, Share2, Facebook, Linkedin, Twitter, CheckCircle2 } from "lucide-react";
@@ -64,7 +65,7 @@ const TableOfContents = ({ blocks, postSlug }: TOCProps) => {
             </div>
 
 
-            <div className="bg-primary p-6 rounded-2xl text-white shadow-xl shadow-primary/10">
+            <div className="hidden lg:block bg-primary p-6 rounded-2xl text-white shadow-xl shadow-primary/10">
                 <h5 className="text-sm font-bold uppercase tracking-widest text-white mb-4 flex items-center gap-2">
                     <Share2 size={14} className="text-white" /> Share Story
                 </h5>

@@ -1,10 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useState, useEffect, useActionState } from "react";
-import { CalendarDays, MessageCircleMore, CircleCheckBig, User } from "lucide-react";
+import { CalendarDays, MessageCircleMore, CircleCheckBig, User,  } from "lucide-react";
 import Image from "next/image";
 import { createComment } from "@/app/actions/blog/blog.actions";
 import Link from "next/link";
+import TableOfContents from "../TableOfContents/TableOfContents";
 
 interface BlogContentProps {
     post: {
@@ -36,9 +38,11 @@ interface BlogContentProps {
 
         metaDescription?: string | null;
     };
+    blocks: any[];
+  postSlug: string;
 }
 
-const BlogContent = ({ post }: BlogContentProps) => {
+const BlogContent = ({ post, blocks, postSlug }: BlogContentProps) => {
     const initialState = { success: false, msg: "" };
     const [state, fromAction, isLoading] = useActionState(
         createComment,
@@ -177,7 +181,7 @@ const BlogContent = ({ post }: BlogContentProps) => {
         <article className="max-w-4xl mx-auto">
 
             <header className="md:mb-12 mb-8">
-                <div className="flex items-center gap-3 md:mb-6 mb-4">
+                <div className="flex items-center gap-3 md:mb-6 mb-4 hidden">
                     <span className="px-4 py-1.5 bg-secondary/10 text-secondary text-xs font-bold rounded-full uppercase tracking-wider">
                         {post.BlogCategory?.name || "Uncategorized"}
                     </span>
@@ -196,8 +200,9 @@ const BlogContent = ({ post }: BlogContentProps) => {
                     {post.title}
                 </h1>
 
-                <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-2xl border border-gray-100">
-                    <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm">
+                <div className="flex items-center justify-between gap-4 p-4 bg-gray-50 rounded-2xl border border-gray-100">
+                    <div className="flex items-center gap-4 p-4">
+                        <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm">
                         <Image
                             src={post?.author?.profileImage || "/avatar.png"}
                             fill
@@ -208,7 +213,21 @@ const BlogContent = ({ post }: BlogContentProps) => {
                     <div>
                         <p className="text-xs text-gray-500 font-medium uppercase tracking-wider">Written By</p>
                         <p className="font-bold text-primary">{post.author?.name || "Restuhub Team"}</p>
+                    </div>  
                     </div>
+                    
+                    <div>
+
+                        <time className="text-sm text-gray-500 flex items-center gap-2">
+                        <CalendarDays size={16} />
+                        {new Date(post.createdAt).toLocaleDateString("en-US", {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                        })}
+                    </time>
+                    </div>
+                    
                 </div>
             </header>
 
@@ -222,6 +241,11 @@ const BlogContent = ({ post }: BlogContentProps) => {
                     priority
                 />
             </div>
+
+            <TableOfContents
+                                    blocks={blocks}
+                                    postSlug={postSlug}
+                                />
 
 
             <div className="prose prose-lg max-w-none">
