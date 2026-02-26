@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React from "react";
+
 import BlogPage from "@/component/Blog/BlogPage";
 import { postList } from "@/app/actions/blog/blog.actions";
 import { blogCategoryList } from "@/app/actions/blog/blogCategory";
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     },
 };
 
-export const revalidate = 3600; // revalidate every hour
+export const revalidate = 60; // revalidate every hour
 
 const Page = async () => {
     const blogsResponse = await postList();
