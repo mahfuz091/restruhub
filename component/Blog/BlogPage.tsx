@@ -1,11 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import React, { useState } from "react";
-import Filter from "./Filter";
+
 import NewBlogItem from "./NewBlogItem";
 import RecentBlog from "./RecentBlog";
 import BlogBanner from "./BlogBanner";
-import Link from "next/link";
+
 
 interface Blog {
     id: string;
@@ -35,7 +36,7 @@ interface BlogPageProps {
 const BlogPage: React.FC<BlogPageProps> = ({ blogs, blogCategories }) => {
     const [filteredBlogs, setFilteredBlogs] = useState<Blog[]>(blogs);
     const [activeCategory, setActiveCategory] = useState<string>("");
-
+    console.log("Fetched blogs response:", blogs);
     const handleSelectCategory = (categoryName: string) => {
         setActiveCategory(categoryName);
         if (!categoryName) {
