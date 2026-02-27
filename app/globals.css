@@ -150,6 +150,17 @@ body {
 
 }
 
+.prose a {
+
+  font-weight: 500;
+  text-decoration: underline;
+  position: relative;
+}
+
+.prose a:hover {
+    color: var(--secondary);
+ }
+
 
 
 
