@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { useRouter, usePathname, useSearchParams } from "next/navigation";
+import { useRouter, usePathname,  } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 
@@ -54,11 +54,13 @@ const Navbar = () => {
           }`}
       >
         <div className="container mx-auto px-4 flex items-center justify-between py-4">
-          <button onClick={() => scrollToSection("home")} className="relative h-[50px] w-[190px] cursor-pointer">
+          <Link href='/' className="relative h-[50px] w-[190px] cursor-pointer">
             <Image src="/Images/logo.png" alt="Logo" fill priority />
-          </button>
+          </Link>
 
           <nav className="hidden md:flex gap-10 text-[18px] font-medium text-primary">
+            <Link href="#how-it-works">
+            How it works</Link>
             <button onClick={() => scrollToSection("how-it-works")} className="hover:text-secondary transition cursor-pointer">
               How it works
             </button>
@@ -69,7 +71,7 @@ const Navbar = () => {
               Why us
             </button>
 
-            <Link href="/blog" className="text-left hover:text-secondary cursor-pointer transition">
+            <Link href="/blog" scroll={true} className="text-left hover:text-secondary cursor-pointer transition">
               Blog
             </Link>
           </nav>
@@ -113,7 +115,7 @@ const Navbar = () => {
           <button onClick={() => scrollToSection("why-us")} className="text-left hover:text-secondary cursor-pointer transition">
             Why us
           </button>
-          <Link href="/blog" onClick={() => setOpen(false)} className="text-left hover:text-secondary cursor-pointer transition">
+          <Link href="/blog" scroll={true} onClick={() => setOpen(false)} className="text-left hover:text-secondary cursor-pointer transition">
             Blog
           </Link>
 

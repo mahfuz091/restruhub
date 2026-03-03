@@ -36,11 +36,11 @@ exports.Prisma = Prisma
 exports.$Enums = {}
 
 /**
- * Prisma Client JS version: 6.19.1
+ * Prisma Client JS version: 6.19.2
  * Query Engine version: c2990dca591cba766e3b7ef5d9e8a84796e47ab7
  */
 Prisma.prismaVersion = {
-  client: "6.19.1",
+  client: "6.19.2",
   engine: "c2990dca591cba766e3b7ef5d9e8a84796e47ab7"
 }
 
@@ -167,7 +167,8 @@ exports.Prisma.JsonNullValueFilter = {
 exports.PostStatus = exports.$Enums.PostStatus = {
   DRAFT: 'DRAFT',
   PENDING: 'PENDING',
-  APPROVED: 'APPROVED'
+  APPROVED: 'APPROVED',
+  DECLINE: 'DECLINE'
 };
 
 exports.Role = exports.$Enums.Role = {
@@ -214,7 +215,7 @@ const config = {
     "schemaEnvPath": "../../.env"
   },
   "relativePath": "../../prisma",
-  "clientVersion": "6.19.1",
+  "clientVersion": "6.19.2",
   "engineVersion": "c2990dca591cba766e3b7ef5d9e8a84796e47ab7",
   "datasourceNames": [
     "db"
@@ -229,8 +230,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id           String   @id @default(uuid())\n  email        String   @unique\n  name         String?\n  profileImage String?\n  password     String\n  role         Role     @default(AUTHOR)\n  createdAt    DateTime @default(now())\n  updatedAt    DateTime @updatedAt\n  posts        Post[]\n}\n\nmodel Post {\n  id              String        @id @default(uuid())\n  title           String\n  postSlug        String        @unique\n  shortDesc       String?\n  bannerImage     String\n  bannerAltText   String?\n  metaTitle       String?       @db.VarChar(160)\n  metaDescription String?       @db.VarChar(200)\n  canonicalUrl    String?\n  content         Json\n  authorId        String?\n  createdAt       DateTime      @default(now())\n  updatedAt       DateTime      @updatedAt\n  blogCategoryId  String?\n  status          PostStatus    @default(DRAFT)\n  Comment         Comment[]\n  author          User?         @relation(fields: [authorId], references: [id])\n  BlogCategory    BlogCategory? @relation(fields: [blogCategoryId], references: [id])\n\n  @@index([authorId], map: \"author_idx\")\n}\n\nmodel Comment {\n  id        String   @id @default(uuid())\n  name      String\n  email     String\n  content   String\n  approved  Boolean?\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n  postId    String\n  post      Post     @relation(fields: [postId], references: [id])\n}\n\nmodel BlogCategory {\n  id        String   @id @default(uuid())\n  name      String\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n  Post      Post[]\n}\n\nenum PostStatus {\n  DRAFT\n  PENDING\n  APPROVED\n}\n\nenum Role {\n  ADMIN\n  AUTHOR\n}\n",
-  "inlineSchemaHash": "ccd01ad38624d9a6ab0a621d4830d667dce6c1fa218e342282aa3b91be645d9b",
+  "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id           String   @id @default(uuid())\n  email        String   @unique\n  name         String?\n  profileImage String?\n  password     String\n  role         Role     @default(AUTHOR)\n  createdAt    DateTime @default(now())\n  updatedAt    DateTime @updatedAt\n  posts        Post[]\n}\n\nmodel Post {\n  id              String        @id @default(uuid())\n  title           String\n  postSlug        String        @unique\n  shortDesc       String?\n  bannerImage     String\n  bannerAltText   String?\n  metaTitle       String?       @db.VarChar(160)\n  metaDescription String?       @db.VarChar(200)\n  canonicalUrl    String?\n  content         Json\n  authorId        String?\n  createdAt       DateTime      @default(now())\n  updatedAt       DateTime      @updatedAt\n  blogCategoryId  String?\n  status          PostStatus    @default(DRAFT)\n  Comment         Comment[]\n  author          User?         @relation(fields: [authorId], references: [id])\n  BlogCategory    BlogCategory? @relation(fields: [blogCategoryId], references: [id])\n\n  @@index([authorId], map: \"author_idx\")\n}\n\nmodel Comment {\n  id        String   @id @default(uuid())\n  name      String\n  email     String\n  content   String\n  approved  Boolean?\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n  postId    String\n  post      Post     @relation(fields: [postId], references: [id])\n}\n\nmodel BlogCategory {\n  id        String   @id @default(uuid())\n  name      String\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n  Post      Post[]\n}\n\nenum PostStatus {\n  DRAFT\n  PENDING\n  APPROVED\n  DECLINE\n}\n\nenum Role {\n  ADMIN\n  AUTHOR\n}\n",
+  "inlineSchemaHash": "a262233a9175c3e5ad42de9c189584c5e8cd2d29a1c4d0ba53311f7f7861fa64",
   "copyEngine": true
 }
 config.dirname = '/'

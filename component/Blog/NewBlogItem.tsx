@@ -49,14 +49,17 @@ const NewBlogItem: React.FC<NewBlogItemProps> = ({ filterData }) => {
 
     const handleNext = () => {
         if (currentPage < totalPages) setCurrentPage((prev) => prev + 1);
+        window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
     const handlePrev = () => {
         if (currentPage > 1) setCurrentPage((prev) => prev - 1);
+        window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
     const handlePageClick = (page: number) => {
         setCurrentPage(page);
+        window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
     if (!filterData || filterData.length === 0) {
@@ -128,7 +131,7 @@ const NewBlogItem: React.FC<NewBlogItemProps> = ({ filterData }) => {
                                 <div className="w-fit bg-secondary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
                                     {category}
                                 </div>
-                                <div className="flex items-center gap-1.5 text-xs text-[#5a6370]">
+                                <div className="hidden items-center gap-1.5 text-xs text-[#5a6370]">
                                     <MessageCircle className="w-3.5 h-3.5" />
                                     <span>{blog._count?.Comment || 0}</span>
 

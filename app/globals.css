@@ -151,14 +151,15 @@ body {
 }
 
 .prose a {
-
+color: var(--secondary);
   font-weight: 500;
   text-decoration: underline;
   position: relative;
+  transition: all .3s ;
 }
 
 .prose a:hover {
-    color: var(--secondary);
+    color: black;
  }
 
 

@@ -10,9 +10,23 @@ interface TOCProps {
 }
 
 const TableOfContents = ({ blocks, postSlug }: TOCProps) => {
-    const [isOpen, setIsOpen] = useState(true);
+    const [isOpen, setIsOpen] = useState(false);
     const contentRef = useRef<HTMLUListElement>(null);
     const [height, setHeight] = useState("auto");
+
+    useEffect(() => {
+  const handleResize = () => {
+    if (window.innerWidth >= 1024) {
+      setIsOpen(true);   // Desktop open
+    } else {
+      setIsOpen(false);  // Mobile closed
+    }
+  };
+
+  handleResize(); // Run on mount
+  window.addEventListener("resize", handleResize);
+  return () => window.removeEventListener("resize", handleResize);
+}, []);
 
     const headers = blocks
         .map((block, index) => ({ ...block, index }))

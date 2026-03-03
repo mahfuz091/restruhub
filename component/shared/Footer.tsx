@@ -1,27 +1,18 @@
-"use client";
 
+
+import React from "react";
 import {
   Facebook,
   Instagram,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-import { useRouter, usePathname } from "next/navigation";
+
+import ScrollButton from "./ScrollButton";
+import ScrollToTop from "./ScrollToTop";
 
 const Footer = () => {
-  const router = useRouter();
-  const pathname = usePathname();
-
-  const scrollToSection = (sectionId: string) => {
-    if (pathname !== "/") {
-
-      router.push(`/?scrollTo=${sectionId}`);
-    } else {
-      const element = document.getElementById(sectionId);
-      if (element) element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -33,9 +24,11 @@ const Footer = () => {
         <div className="flex flex-wrap justify-between gap-6">
 
           <div className="w-[90%] md:w-[40%]">
-            <div onClick={scrollToTop} className="relative h-[50px] w-[190px] cursor-pointer">
-              <Image src="/Images/logo.png" alt="Logo" fill priority />
-            </div>
+            <ScrollToTop>
+  <div className="relative h-[50px] w-[190px]">
+    <Image src="/Images/logo.png" alt="Logo" fill />
+  </div>
+</ScrollToTop>
             <p className="text-white opacity-80 max-w-[277px] pt-5">
               AI-powered review management for busy restaurant owners.
             </p>
@@ -45,15 +38,22 @@ const Footer = () => {
           <div className="text-white">
             <h6 className="text-lg md:text-xl font-semibold">Company</h6>
             <div className="flex flex-col gap-2 pt-5 text-[16px] opacity-80">
-              <button onClick={() => scrollToSection("how-it-works")} className="text-left cursor-pointer hover:text-secondary transition">
+              {/* <button onClick={() => scrollToSection("how-it-works")} className="text-left cursor-pointer hover:text-secondary transition">
                 How it works
-              </button>
-              <button onClick={() => scrollToSection("pricing")} className="text-left cursor-pointer hover:text-secondary transition">
+              </button> */}
+              {/* <button onClick={() => scrollToSection("pricing")} className="text-left cursor-pointer hover:text-secondary transition">
                 Pricing
-              </button>
-              <button onClick={() => scrollToSection("why-us")} className="text-left cursor-pointer hover:text-secondary transition">
-                Why us
-              </button>
+              </button> */}
+              <ScrollButton sectionId="how-it-works">
+   How it works
+</ScrollButton>
+              <ScrollButton sectionId="pricing">
+  Pricing
+</ScrollButton>
+<ScrollButton sectionId="why-us">
+  Why us
+</ScrollButton>
+             
             </div>
           </div>
 
@@ -61,8 +61,17 @@ const Footer = () => {
           <div className="text-white">
             <h6 className="text-lg md:text-xl font-semibold">Resources</h6>
             <div className="flex flex-col gap-2 pt-5 text-[16px] opacity-80">
-              <button className="text-left cursor-pointer hover:text-secondary transition" onClick={() => scrollToSection("contact")} >Contact Us</button>
-              <button className="text-left cursor-pointer hover:text-secondary transition" onClick={() => scrollToSection("faq")} >FAQ’s</button>
+              <ScrollButton sectionId="contact">
+Contact Us
+</ScrollButton>
+              <ScrollButton sectionId="faq">
+FAQ’s
+</ScrollButton>
+<Link href='/blog' scroll={true}>
+Blog
+</Link>
+
+              
             </div>
           </div>
 

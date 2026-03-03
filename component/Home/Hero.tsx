@@ -1,8 +1,6 @@
 "use client"
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
-import React from "react";
-import BrandLogo from "./BrandLogo";
 import { FadeInWhenVisible } from "../shared/FadeInWhenVisible";
 import Link from "next/link";
 
@@ -38,10 +36,10 @@ const Hero = () => {
               </p>
 
               <div className="flex gap-4 justify-center items-center md:flex-row flex-col pt-6 lg:pt-10">
-                <a href="#pricing" className="w-full md:w-fit" >
+                <Link href="#pricing" className="w-full md:w-fit" >
                   <button className="primary-btn w-full md:w-fit">
                     <span>Start Free Trail</span> <ArrowRight />
-                  </button></a>
+                  </button></Link>
 
                 <button className="bg-white border px-4 py-2.5 rounded-xl w-full md:w-fit border-[#00000033] cursor-pointer hover:bg-[#f0f0f0] hover:border-[#000000] transition-colors duration-300">
                   <span>Sign Up Now</span>

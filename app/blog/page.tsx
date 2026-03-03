@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     },
 };
 
-export const revalidate = 60; // revalidate every hour
+export const revalidate = 30; // revalidate every hour
 
 const Page = async () => {
     const blogsResponse = await postList();

@@ -5,6 +5,8 @@ import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/component/shared/Navber";
 import Footer from "@/component/shared/Footer";
+import ScrollTop from "@/component/shared/ScrollTop";
+import NavbarTwo from "@/component/shared/NavbarTwo";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -96,7 +98,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           />
         </noscript>
         {/* End Google Tag Manager (noscript) */}
-
+ <ScrollTop/> 
         <Navbar />
         {children}
         <Footer />

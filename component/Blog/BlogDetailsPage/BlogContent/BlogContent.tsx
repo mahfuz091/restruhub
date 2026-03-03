@@ -235,11 +235,12 @@ const BlogContent = ({ post, blocks, postSlug }: BlogContentProps) => {
             </header>
 
 
-            <div className="relative aspect-video rounded-3xl overflow-hidden md:mb-16 mb-8 shadow-2xl">
+            <div className="relative  rounded-3xl overflow-hidden md:mb-16 mb-8 shadow-2xl">
                 <Image
                     src={safeImageSrc(post.bannerImage)}
                     alt={post.title}
-                    fill
+                    width={895}
+                    height={503}
                     className="object-cover"
                     priority
                 />

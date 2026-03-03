@@ -67,6 +67,7 @@ enum PostStatus {
   DRAFT
   PENDING
   APPROVED
+  DECLINE
 }
 
 enum Role {

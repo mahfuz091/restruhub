@@ -2,7 +2,7 @@
 import { ArrowRight } from "lucide-react";
 import React, { useState, useRef, useEffect } from "react";
 import { FadeInWhenVisible } from "../shared/FadeInWhenVisible";
-import Link from "next/link";
+
 
 interface FaqItem {
   question: string;
