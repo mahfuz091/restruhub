@@ -67,7 +67,7 @@ Contact Us
               <ScrollButton sectionId="faq">
 FAQ’s
 </ScrollButton>
-<Link href='/blog' scroll={true}>
+<Link href='/blog' scroll={true} className="hover:text-secondary">
 Blog
 </Link>
 
@@ -79,8 +79,8 @@ Blog
           <div className="text-white">
             <h6 className="text-lg md:text-xl font-semibold">Policies</h6>
             <div className="flex flex-col gap-2 pt-5 text-[16px] opacity-80">
-              <Link href="/terms-conditions">Terms & Conditions</Link>
-              <Link href="/privacy">Privacy Policy</Link>
+              <Link href="/terms-conditions" className="hover:text-secondary">Terms & Conditions</Link>
+              <Link href="/privacy" className="hover:text-secondary">Privacy Policy</Link>
             </div>
           </div>
         </div>
