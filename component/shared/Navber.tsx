@@ -59,8 +59,7 @@ const Navbar = () => {
           </Link>
 
           <nav className="hidden md:flex gap-10 text-[18px] font-medium text-primary">
-            <Link href="#how-it-works">
-            How it works</Link>
+           
             <button onClick={() => scrollToSection("how-it-works")} className="hover:text-secondary transition cursor-pointer">
               How it works
             </button>
