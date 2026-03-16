@@ -2,7 +2,7 @@
 
 import React from "react";
 
-const BlogBannerSkeleton = () => {
+const   BlogBannerSkeleton = () => {
     return (
         <div className="pt-[120px] md:pt-[160px] relative overflow-hidden animate-pulse">
             <div className="absolute top-[62%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-40 w-[500px] bg-secondary/10 blur-3xl opacity-10 z-0"></div>
