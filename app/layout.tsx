@@ -75,7 +75,7 @@ export default function RootLayout({
       >
     
 
-         <Script
+         {/* <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-MCVQZY096H"
           strategy="afterInteractive"
         />
@@ -86,7 +86,7 @@ export default function RootLayout({
             gtag('js', new Date());
             gtag('config', 'G-MCVQZY096H');
           `}
-        </Script>
+        </Script> */}
  <ScrollTop/> 
         <Navbar />
         {children}
