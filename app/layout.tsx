@@ -24,7 +24,7 @@ const inter = Inter({
 });
 
 const SITE_URL = "https://restruhub.com";
-const GTM_ID = "GTM-5MHMHGVP";
+// const GTM_ID = "GTM-5MHMHGVP";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -66,9 +66,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
       
-      </head>
 
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased bg-[#ffffff]`}
