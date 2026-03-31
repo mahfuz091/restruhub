@@ -76,8 +76,8 @@ const Navbar = () => {
           </nav>
 
           <div className="hidden md:flex items-center gap-4">
-            <button className="secondary-btn">Login</button>
-            <button className="primary-btn">Contact Us</button>
+            <Link href="https://dashboard.restruhub.com" target="_blank" className="secondary-btn">Login</Link>
+            <Link href="mailTo:support@restruhub.com" className="primary-btn">Contact Us</Link>
           </div>
 
           <button className="md:hidden" onClick={() => setOpen(true)}>

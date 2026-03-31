@@ -38,7 +38,7 @@ export default function NavbarTwo() {
 
         {/* Buttons */}
         <div className="hidden md:flex items-center gap-4">
-          <Link href="/login" className="secondary-btn">
+          <Link href="https://dashboard.restruhub.com" className="secondary-btn">
             Login
           </Link>
 

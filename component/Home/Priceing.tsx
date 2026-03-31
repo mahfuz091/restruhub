@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { Check, MoveRight } from "lucide-react";
 import { FadeInWhenVisible } from "../shared/FadeInWhenVisible";
+import Link from "next/link";
 
 
 interface Plan {
@@ -182,6 +183,7 @@ const Pricing = () => {
                       />
                     </div>
 
+                 <Link href="https://dashboard.restruhub.com" target="_blank" >
                     <span
                       className="relative z-10 flex items-center gap-3 transition-colors duration-300 
     group-hover/btn:text-white"
@@ -191,7 +193,7 @@ const Pricing = () => {
                         className="w-5 h-5 transition-all duration-500 ease-out 
       group-hover/btn:translate-x-3 group-hover/btn:scale-110"
                       />
-                    </span>
+                    </span></Link>
                   </button>
 
 

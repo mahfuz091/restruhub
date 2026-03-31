@@ -3,6 +3,7 @@
 import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const CoolFeature = () => {
   return (
@@ -95,7 +96,9 @@ const CoolFeature = () => {
                       viewport={{ once: true, }}
                       className="primary-btn w-full md:w-fit"
                     >
+                      <Link href="https://dashboard.restruhub.com" target="_blank" >
                       <span>Get Started</span>
+                      </Link>
                     </motion.button>
 
                     <motion.button
@@ -104,7 +107,8 @@ const CoolFeature = () => {
                       viewport={{ once: true, }}
                       className="bg-white border px-4 py-2.5 rounded-xl w-full md:w-fit border-[#00000033] hover:bg-[#f0f0f0] hover:border-[#000000] transition-all duration-300"
                     >
-                      <span>Request A Demo</span>
+                      <Link href="https://calendly.com/restruhub/30min" target="_blank" >
+                      <span>Request A Demo</span></Link>
                     </motion.button>
                   </div>
                 </div>

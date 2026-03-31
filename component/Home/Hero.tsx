@@ -41,9 +41,10 @@ const Hero = () => {
                     <span>Start Free Trail</span> <ArrowRight />
                   </button></Link>
 
+                <Link href="https://dashboard.restruhub.com" target="_blank">
                 <button className="bg-white border px-4 py-2.5 rounded-xl w-full md:w-fit border-[#00000033] cursor-pointer hover:bg-[#f0f0f0] hover:border-[#000000] transition-colors duration-300">
                   <span>Sign Up Now</span>
-                </button>
+                </button></Link>
               </div>
             </div>
           </FadeInWhenVisible>
