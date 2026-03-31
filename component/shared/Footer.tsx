@@ -61,9 +61,9 @@ const Footer = () => {
           <div className="text-white">
             <h6 className="text-lg md:text-xl font-semibold">Resources</h6>
             <div className="flex flex-col gap-2 pt-5 text-[16px] opacity-80">
-              <ScrollButton sectionId="contact">
+<Link href='mailto:support@restruhub.com' scroll={true} className="hover:text-secondary">
 Contact Us
-</ScrollButton>
+</Link>
               <ScrollButton sectionId="faq">
 FAQ’s
 </ScrollButton>
