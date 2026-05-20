@@ -222,6 +222,7 @@ export default async function Pricing() {
     );
     if (res.ok) {
       const json = (await res.json()) as { data?: PricingPlan[] };
+      console.log(json);
       plans = sortPlans(json.data ?? fallbackPlans);
     }
   } catch {

@@ -264,7 +264,7 @@ const PricingClient: React.FC<Props> = ({
           </div>
         </FadeInWhenVisible>
 
-        <div className="gap-8 grid grid-cols-1 md:grid-cols-3 pt-60">
+        <div className="gap-8 grid grid-cols-1 md:grid-cols-2 pt-60">
           {plans.map((plan, index) => {
             const cycleSupported =
               plan.pricingType === "free_trial" ||
