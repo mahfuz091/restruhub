@@ -193,7 +193,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/Volumes/DiskThree/mehadi/Code/Work/restruhub/restruhub-final/restruhub/generated/prisma",
+      "value": "E:\\Tousif-Vai-poject\\PhUB\\2026\\june\\restruhub\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -202,16 +202,17 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "darwin-arm64",
+        "value": "windows",
         "native": true
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/Volumes/DiskThree/mehadi/Code/Work/restruhub/restruhub-final/restruhub/prisma/schema.prisma",
+    "sourceFilePath": "E:\\Tousif-Vai-poject\\PhUB\\2026\\june\\restruhub\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": null
+    "rootEnvPath": null,
+    "schemaEnvPath": "../../.env"
   },
   "relativePath": "../../prisma",
   "clientVersion": "6.19.2",
